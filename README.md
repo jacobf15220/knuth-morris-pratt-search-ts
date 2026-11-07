@@ -19,3 +19,10 @@ The trade-off is that this is pure JavaScript operating on UTF-16 code units, so
 ## Edge cases
 
 `search` treats an empty pattern the same way `indexOf` does: it returns `0`. `findAll` with an empty pattern returns `[]` rather than every index, because returning one match per position is rarely what anyone wants. Matches found by `findAll` are non-overlapping: after a hit at position `p`, scanning resumes at `p + pattern.length`.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
