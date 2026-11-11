@@ -1,6 +1,6 @@
 {
   "name": "knuth-morris-pratt-search-ts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Substring search via the Knuth-Morris-Pratt algorithm in zero-dependency ESM",
   "type": "module",
   "main": "src/index.js",
